@@ -4,60 +4,48 @@
 //height2=inch/39.37
 //total height=height1+height2
 #include<stdio.h>
-float getbmi(float foot ,float inch, float weight)
+float foottometer(float foot)
 {
-    float f_m,i_m,t_h,bmi;
-    f_m=foot/3.281;
-    i_m=inch/39.37;
-    t_h=f_m + i_m;
-    printf("\nthe totol height=%f",t_h);
-    bmi=weight/(t_h*t_h);
-    printf("\nyour bmi is=%f",bmi);
-    return bmi;
-    return t_h;
+    float ftom;
+    ftom=foot/3.281;
+    printf("height foot to meter=%f\n",ftom);
+    return ftom;
+
 }
-// float geti_m(float inch)
-// {
-//     float i_m;
-//     i_m=inch/39.37;
-//     printf("\nthe totol height is foot to meter=%f",i_m);
-//     return i_m;
-// }
-// void gett_h(float f_m, float i_m)
-// {
-//     float t_h;
-//     t_h=f_m+i_m;
-//     printf("the totol height is=%f",t_h);
-
-// }
-// float getbmi(float weight) 
-// {
-//     float bmi,t_h;
-//     bmi=weight/(t_h*t_h);
-//     printf("\nyour bmi is=%f",bmi);
-//     return bmi;
-
-// }
-
+float inchtometer(float inch)
+{
+    float itom;
+    itom=inch/39.37;
+    printf("height inch to meter=%f\n",itom);
+    return itom;
+}
+float totalhight(float n1,float n2)
+{
+    return n1+n2;
+}
+float bmi( int weight, float total_meter)
+{
+    float bmi;
+    bmi=weight/(total_meter*total_meter);
+    printf("\nYOUR BMI IS=%f",bmi);
+    return bmi;
+}
 void main()
 {
-    float bmi,weight,foot,inch,f_m,i_m,t_h;
-    printf("ENTER VALUE OF WEIGHT IN KG = ");
-    scanf("%f",&weight);
+    int weight;
+    float heightinfoot,footmeter,inchmeter,totalmeter;
+    float heightininch;
+
+    printf("enter weight= ");
+    scanf("%d",&weight);
     printf("enter height in foot= ");
-    scanf("%f",&foot);
+    scanf("%f",&heightinfoot);
     printf("enter height in inch= ");
-    scanf("%f",&inch);
-    //getf_m(foot);
-    //geti_m(inch);
-    //i_m=inch/39.37;
-    //gett_h(foot,inch);
-    //t_h=getf_m(foot) + i_m;
-    //printf("total height is=%.2f",t_h);
-    getbmi(foot,inch,weight);
-    //bmi=weight  / (t_h*t_h);
-    //printf("\nyour bmi is=%f",bmi);
-
-
-
+    scanf("%f",&heightininch);
+    footmeter= foottometer( heightinfoot );
+    inchmeter= inchtometer( heightininch);
+    totalmeter=totalhight(footmeter,inchmeter);
+    printf("THE TOTAL METER IS =%f",totalmeter);
+    bmi( weight,totalmeter);
+    //printf("\nyour bmi is=%f",bmi(weight,totalmeter));
 }
